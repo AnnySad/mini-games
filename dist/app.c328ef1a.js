@@ -119,7 +119,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"app.js":[function(require,module,exports) {
 var board = document.querySelector('#board');
-var colors = ['#e74c3c', '#8e44ad', '#3498db', '#e67e22', '#2ecc71'];
+var colors = ['#d95656', '#de9320', '#7ebb45', '#14d9cf', '#41aec7', '#1424d9', '#7845c5', '#c532da', '#4d0641', '#d21425'];
 var SQUARES_NUMBER = 500;
 var _loop = function _loop(i) {
   var square = document.createElement('div');
