@@ -121,38 +121,27 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var board = document.querySelector('#board');
 var colors = ['#d95656', '#de9320', '#7ebb45', '#14d9cf', '#41aec7', '#1424d9', '#7845c5', '#c532da', '#4d0641', '#d21425'];
 var SQUARES_NUMBER = 500;
-var _loop = function _loop(i) {
+for (var i = 0; i < SQUARES_NUMBER; i++) {
   var square = document.createElement('div');
   square.classList.add('square');
-  square.addEventListener('mouseover', function () {
-    return (
-      //наводим мышь  
-      setColor(square)
-    );
-  });
-  square.addEventListener('mouseleave', function () {
-    return (
-      //убираем мышь
-      removeColor(square)
-    );
-  });
+  square.addEventListener('mouseover', setColor); //наводим мышь
+  square.addEventListener('mouseleave', removeColor); //убираем мышь
+
   board.append(square);
-};
-for (var i = 0; i < SQUARES_NUMBER; i++) {
-  _loop(i);
 }
-function setColor(element) {
+function setColor(event) {
+  var element = event.target;
   var color = getColorRandom();
   element.style.backgroundColor = color;
   element.style.boxShadow = "0 0 2px ".concat(color, ", 0 0 10px ").concat(color);
 }
-function removeColor(element) {
+function removeColor(event) {
+  var element = event.target;
   element.style.backgroundColor = '#1d1d1d';
   element.style.boxShadow = "0 0 2px #000";
 }
 function getColorRandom() {
-  var index = Math.floor(Math.random() * colors.length);
-  return colors[index];
+  return colors[Math.floor(Math.random() * colors.length)];
 }
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -179,7 +168,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64502" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57053" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

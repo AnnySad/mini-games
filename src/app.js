@@ -6,26 +6,26 @@ for (let i = 0; i < SQUARES_NUMBER; i++){
     const square = document.createElement('div')
     square.classList.add('square')
 
-    square.addEventListener('mouseover', ()=>      //наводим мышь  
-    setColor(square))
-    square.addEventListener('mouseleave', ()=>     //убираем мышь
-    removeColor(square))
+    square.addEventListener('mouseover', setColor)//наводим мышь
+    square.addEventListener('mouseleave', removeColor)    //убираем мышь
+
 
     board.append(square)
 }
 
-function setColor(element) {
+function setColor(event) {
+    const element = event.target
     const color = getColorRandom()
     element.style.backgroundColor =color
     element.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`
 }
 
-function removeColor(element) {
+function removeColor(event) {
+    const element = event.target
     element.style.backgroundColor = '#1d1d1d'
     element.style.boxShadow = `0 0 2px #000`
 }
 
 function getColorRandom() {
-  const index = Math.floor( Math.random() * colors.length)
-    return colors[index]
+    return colors[Math.floor( Math.random() * colors.length)]
 }
